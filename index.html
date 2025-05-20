@@ -694,46 +694,45 @@ closeBtn.addEventListener('click', () => {
 
 <script>
 const popup = document.getElementById("popup");
-  const countdown = document.getElementById("countdown");
-  const targetDate = new Date("2025-06-20T00:00:00").getTime();
+const countdown = document.getElementById("countdown");
+const targetDate = new Date("2025-06-20T00:00:00").getTime();
 
-  function startCountdown() {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+function startCountdown() {
+  const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-      if (distance < 0) {
-        clearInterval(interval);
-        countdown.innerHTML = "Şimdi Yayında!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdown.innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}sn`;
-    }, 1000);
-  }
-
-  // Eğer cookie yoksa popup göster, cookie koy
-  if (!document.cookie.includes("popupShown=true")) {
-    popup.classList.add('show');
-    document.cookie = "popupShown=true; path=/; max-age=86400"; // 1 gün
-  }
-
-  startCountdown();
-
-  // Popup kapatma
-  document.getElementById("popup-close").addEventListener("click", () => {
-    popup.classList.remove('show');
-  });
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) {
-      popup.classList.remove('show');
+    if (distance < 0) {
+      clearInterval(interval);
+      countdown.innerHTML = "Şimdi Yayında!";
+      return;
     }
-  });
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}sn`;
+  }, 1000);
+}
+
+// Popup’u her sayfa yenilendiğinde göster
+popup.classList.add('show');
+
+startCountdown();
+
+// Popup kapatma işlemleri
+document.getElementById("popup-close").addEventListener("click", () => {
+  popup.classList.remove('show');
+});
+
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove('show');
+  }
+});
+
 </script>
 
 
