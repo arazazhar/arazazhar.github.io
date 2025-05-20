@@ -429,6 +429,73 @@ h1 {
   }
 }
 
+/* PopUP */
+
+
+ .popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Başlangıçta gizli */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.6s ease;
+  }
+  .popup-overlay.show {
+    display: flex;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    animation: scaleIn 0.6s ease;
+    color: #000;
+  }
+
+  #popup-close {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .countdown {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  .popup-overlay.show .countdown {
+    opacity: 1;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @media (max-width: 600px) {
+    .popup-content {
+      padding: 1.5rem;
+    }
+    .countdown {
+      font-size: 1rem;
+    }
+  }
+
 
   </style>
 </head>
@@ -469,7 +536,8 @@ h1 {
   </section>
 
 <!-- Hakkımda -->
-<section id="hakkimda" style="text-align: center; padding: 100px 20px 60px 20px; background-color: #111; color: #fff;">
+<section id="hakkimda" style="text-align: center; padding: 100px 20px 60px 20px; background-color: #111; color: #fff;"><br>
+
   <h2 style="font-size: 2em; margin-bottom: 20px;">Hakkımda</h2>
   
   <p style="max-width: 700px; margin: 0 auto 30px auto; font-size: 1.1em; line-height: 1.6;">
@@ -537,6 +605,14 @@ Araz Azhar, müzik tarzında çeşitlilik ve yenilik arayışında olan bir sana
 <!-- Yukarı Çık Butonu -->
 <button id="scrollToTopBtn" title="Yukarı Çık">↑</button>
 
+<!-- PopUp -->
+<div id="popup" class="popup-overlay">
+  <div class="popup-content">
+    <button id="popup-close">&times;</button>
+    <h2>🔥 Yeni Tekli “Yeter” 20 Haziran’da Yayında!</h2>
+    <div id="countdown" class="countdown"></div>
+  </div>
+</div>
 
 <script>
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -614,6 +690,50 @@ closeBtn.addEventListener('click', () => {
   window.onload = function() {
     document.querySelector('.contact-form').reset();
   };
+</script>
+
+<script>
+const popup = document.getElementById("popup");
+  const countdown = document.getElementById("countdown");
+  const targetDate = new Date("2025-06-20T00:00:00").getTime();
+
+  function startCountdown() {
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "Şimdi Yayında!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}sn`;
+    }, 1000);
+  }
+
+  // Eğer cookie yoksa popup göster, cookie koy
+  if (!document.cookie.includes("popupShown=true")) {
+    popup.classList.add('show');
+    document.cookie = "popupShown=true; path=/; max-age=86400"; // 1 gün
+  }
+
+  startCountdown();
+
+  // Popup kapatma
+  document.getElementById("popup-close").addEventListener("click", () => {
+    popup.classList.remove('show');
+  });
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      popup.classList.remove('show');
+    }
+  });
 </script>
 
 
