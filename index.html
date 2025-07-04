@@ -605,14 +605,7 @@ Araz Azhar, müzik tarzında çeşitlilik ve yenilik arayışında olan bir sana
 <!-- Yukarı Çık Butonu -->
 <button id="scrollToTopBtn" title="Yukarı Çık">↑</button>
 
-<!-- PopUp -->
-<div id="popup" class="popup-overlay">
-  <div class="popup-content">
-    <button id="popup-close">&times;</button>
-    <h2>🔥 Yeni Tekli “Yeter” 20 Haziran’da Yayında!</h2>
-    <div id="countdown" class="countdown"></div>
-  </div>
-</div>
+
 
 <script>
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -717,21 +710,11 @@ function startCountdown() {
   }, 1000);
 }
 
-// Popup’u her sayfa yenilendiğinde göster
-popup.classList.add('show');
+
 
 startCountdown();
 
-// Popup kapatma işlemleri
-document.getElementById("popup-close").addEventListener("click", () => {
-  popup.classList.remove('show');
-});
 
-popup.addEventListener("click", (e) => {
-  if (e.target === popup) {
-    popup.classList.remove('show');
-  }
-});
 
 </script>
 
