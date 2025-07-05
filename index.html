@@ -48,7 +48,7 @@
 	width: 100%;
     }
    .hero {
-  background: url('images/arkaplan.webp') no-repeat center center/cover;
+  background: url('images/arkaplan.jpg') no-repeat center center/cover;
  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -497,7 +497,78 @@ h1 {
   }
 
 
+
+
   </style>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<style>
+  .swiper {
+    width: 100%;
+    padding: 40px 0;
+  }
+
+  .swiper-slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .swiper-slide:hover {
+    transform: scale(1.03);
+  }
+
+  .swiper-slide iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+  }
+
+  .hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper-slide:hover .hover-overlay {
+    opacity: 1;
+  }
+
+  .watch-btn {
+    background-color: #ff3c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+  }
+
+  #videoklipler h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+</style>
+
 </head>
 <body>
 
@@ -572,14 +643,90 @@ Araz Azhar, müzik tarzında çeşitlilik ve yenilik arayışında olan bir sana
 
 
 <!-- Klipler -->
-  <section id="videoklipler" class="section video-slider">
-    <h2>Video Klipler</h2>
-	<iframe src="https://www.youtube.com/embed/66ImsFqncik?si=ZSPBz7iNEmVFm5Cq" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/l47W6YKI1iw" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/kSF34YNKyHI?si=2ibBp7aURpZ2yxb9" frameborder="0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/B1utjRU4pic?si=xbyhmxXpVSybGFmm" frameborder="0" allowfullscreen></iframe>
-  </section>
+<section id="videoklipler" class="section video-slider">
+  <h2>Video Klipler</h2>
 
+  <div class="swiper myVideoSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/66ImsFqncik?si=ZSPBz7iNEmVFm5Cq" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=66ImsFqncik" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/l47W6YKI1iw" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=l47W6YKI1iw" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/kSF34YNKyHI?si=2ibBp7aURpZ2yxb9" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=kSF34YNKyHI" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/B1utjRU4pic?si=xbyhmxXpVSybGFmm" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=B1utjRU4pic" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+	 <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/rbtmrTNCW2Q?si=vr59qeHspDM4XZbf" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://youtu.be/rbtmrTNCW2Q" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+	
+	 <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/mkFuHH9h79o?si=DmZu9ugz9sCnvnjt" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=mkFuHH9h79o" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+
+	 <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/k38Qdo8xL2w?si=759BaLWbqs_Yppei" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=k38Qdo8xL2w" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+	
+
+	 <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/jdsuP6KlS3Y?si=OUfKV-mQYOGsdJwm" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=jdsuP6KlS3Y" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+	 <div class="swiper-slide">
+        <iframe src="https://www.youtube.com/embed/MnwLWZow2uc?si=sF6f-l4Dur1uCEWI" allowfullscreen></iframe>
+        <div class="hover-overlay">
+          <a href="https://www.youtube.com/watch?v=MnwLWZow2uc" target="_blank" class="watch-btn">İzle</a>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+    <!-- Navigasyon -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 <!-- İletişim -->
 <section id="iletisim" class="section">
   <h2>İletişim</h2>
@@ -607,6 +754,7 @@ Araz Azhar, müzik tarzında çeşitlilik ve yenilik arayışında olan bir sana
 <button id="scrollToTopBtn" title="Yukarı Çık">↑</button>
 
 
+</div>
 
 <script>
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -624,6 +772,28 @@ Araz Azhar, müzik tarzında çeşitlilik ve yenilik arayışında olan bir sana
       top: 0,
       behavior: "smooth"
     });
+  });
+</script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.myVideoSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    },
   });
 </script>
 
@@ -710,12 +880,6 @@ function startCountdown() {
     countdown.innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}sn`;
   }, 1000);
 }
-
-
-
-startCountdown();
-
-
 
 </script>
 
