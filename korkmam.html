@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Korkmam - Araz Azhar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('images/araz_azhar_korkmam_cover.webp') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .content {
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 16px;
+      padding: 30px 20px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+    }
+
+    .cover {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    iframe {
+      width: 100%;
+      height: 220px;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    .social {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.4em;
+      padding: 10px;
+      transition: transform 0.2s;
+    }
+
+    .social a:hover {
+      transform: scale(1.2);
+      color: #66d9ff;
+    }
+
+    .email {
+      margin-top: 25px;
+      font-size: 0.9em;
+      color: #bbb;
+    }
+
+    .streaming-container {
+      margin-top: 25px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .streaming-container h2 {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      color: #66d9ff;
+    }
+
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .platform-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #111;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.2s;
+      font-size: 0.95em;
+    }
+
+    .platform-links a:hover {
+      background-color: #222;
+      transform: scale(1.05);
+      color: #66d9ff;
+    }
+
+    .platform-links i {
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 600px) {
+      .cover {
+        max-width: 100%;
+      }
+
+      iframe {
+        height: 180px;
+      }
+
+      .platform-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .platform-links a {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img src="images/araz_azhar_korkmam_cover.webp" alt="Korkmam Kapak" class="cover" />
+    <h1>Korkmam</h1>
+
+    <div class="streaming-container">
+      <h2>Şimdi Dinle</h2>
+      <div class="platform-links">
+        <a href="https://open.spotify.com/intl-tr/track/3n3NE3c8A1m3yu3Luald3M?si=cd4b7786c22d4882" target="_blank">
+          <i class="fab fa-spotify"></i> Spotify
+        </a>
+        <a href="https://music.apple.com/tr/song/korkmam/1823629911" target="_blank">
+          <i class="fab fa-apple"></i> Apple Music
+        </a>
+        <a href="https://link.deezer.com/s/30zsIVaGy6tuFvPBY0Uwz" target="_blank">
+          <i class="fab fa-deezer"></i> Deezer
+        </a>
+        <a href="https://music.youtube.com/playlist?list=OLAK5uy_nHYgDECmJSnyAbME6x7pBwt1vmToZYrzk&si=pnThJrwFRqlFsq_5" target="_blank">
+          <i class="fab fa-youtube"></i> YouTube Music
+        </a>
+      </div>
+    </div>
+
+    <iframe src="https://www.youtube.com/embed/yWtWt1K9xE8?si=8fvF8mX--hcPj6T0" title="Korkmam" frameborder="0" allowfullscreen></iframe>
+
+    <p>
+      Lyrics : Araz Azhar<br />
+      Music : Araz Azhar<br />
+      Mix & Mastering : Araz Azhar<br />
+      Lyrics Video : Veinzevad & Emircan Sarıkaya<br />
+    </p>
+
+    <div class="social">
+      <a href="https://instagram.com/arazazhar" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@arazazhar" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://open.spotify.com/intl-tr/artist/4ur8NfemRAtSl1DnqTuEoV?si=vaz27d86TEGLefXK1wuCJA" target="_blank"><i class="fab fa-spotify"></i></a>
+    </div>
+
+    <div class="email">
+      İletişim: <a href="mailto:info@arazazhar.com">info@arazazhar.com</a>
+    </div>
+  </div>
+</body>
+</html>
