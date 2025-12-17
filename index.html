@@ -589,8 +589,8 @@ h1 {
 </ul>
   </nav>
 
-<!-- Main -->
-  <section id="anasayfa" class="hero">
+<!-- HERO -->
+  <section id="anasayfa" class="hero" data-hero>
     <h1>Araz Azhar</h1>
     <p>Dinleyebileceğin Platformlar</p>
     <div class="platforms">
@@ -642,7 +642,7 @@ Araz Azhar, müzik tarzında çeşitlilik ve yenilik arayışında olan bir sana
 </section>
 
 
-<!-- Klipler -->
+<!-- VIDEOLAR -->
 <section id="videoklipler" class="section video-slider">
   <h2>Video Klipler</h2>
 
@@ -883,7 +883,40 @@ function startCountdown() {
 
 </script>
 
+<!-- SWIPER -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+
+<!-- CMS BAĞLANTI JS -->
+<script>
+fetch('/content/homepage/home.json')
+.then(r=>r.json())
+.then(data=>{
+
+document.querySelector('[data-hero]').style.backgroundImage=`url(${data.hero})`;
+
+document.getElementById('about-text').innerHTML=data.about;
+
+const wrapper=document.getElementById('video-wrapper');
+wrapper.innerHTML='';
+
+data.videos.forEach(v=>{
+wrapper.innerHTML+=`
+<div class="swiper-slide">
+<iframe src="${v.url}" allowfullscreen></iframe>
+</div>`;
+});
+
+new Swiper('.myVideoSwiper',{
+slidesPerView:1,
+spaceBetween:20,
+breakpoints:{768:{slidesPerView:2},1024:{slidesPerView:3}},
+pagination:{el:'.swiper-pagination',clickable:true},
+navigation:{nextEl:'.swiper-button-next',prevEl:'.swiper-button-prev'}
+});
+});
+</script>
 
 </body>
 </html>
+
