@@ -1,3 +1,27 @@
 backend:
   name: git-gateway
   branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "homepage"
+    label: "Ana Sayfa"
+    files:
+      - file: "content/homepage.json"
+        label: "Ana Sayfa İçeriği"
+        name: "homepage"
+        fields:
+          - { label: "Hero Başlık", name: "hero_title", widget: "string" }
+          - { label: "Hero Alt Metin", name: "hero_subtitle", widget: "string" }
+          - { label: "Hakkımda", name: "about", widget: "text" }
+
+  - name: "videos"
+    label: "Videolar"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Başlık", name: "title", widget: "string" }
+      - { label: "YouTube Linki", name: "youtube", widget: "string" }
