@@ -1,0 +1,41 @@
+backend:
+name: git-gateway
+branch: main
+
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+
+collections:
+- name: "homepage"
+label: "Ana Sayfa"
+files:
+- file: "content/homepage/home.json"
+label: "Ana Sayfa İçeriği"
+name: "home"
+fields:
+- { label: "Hero Fotoğraf", name: "hero", widget: "image" }
+- { label: "Hakkımda", name: "about", widget: "text" }
+- label: "Videolar"
+name: "videos"
+widget: "list"
+fields:
+- { label: "Başlık", name: "title", widget: "string" }
+- { label: "YouTube Link", name: "url", widget: "string" }
+
+
+- name: "releases"
+label: "Presave Sayfaları"
+folder: "content/releases"
+create: true
+slug: "{{slug}}"
+fields:
+- { label: "Slug", name: "slug", widget: "string" }
+- { label: "Şarkı Adı", name: "title", widget: "string" }
+- { label: "Kapak", name: "cover", widget: "image" }
+- { label: "Açıklama", name: "description", widget: "text" }
+- { label: "Spotify", name: "spotify", widget: "string", required: false }
+- { label: "Apple Music", name: "apple", widget: "string", required: false }
+- { label: "YouTube", name: "youtube", widget: "string", required: false }
+- { label: "Deezer", name: "deezer", widget: "string", required: false }
