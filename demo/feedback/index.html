@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArazLab — Dinleme Laboratuvarı</title>
+<meta name="description" content="ArazLab: yayınlanmamış demoları dinle, ilk hislerini paylaş.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <span class="mark"><span></span><span></span><span></span><span></span></span>
+      Araz<em>Lab</em>
+    </a>
+    <a href="admin.html" class="btn btn-ghost btn-sm">Admin Girişi</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="eyebrow">ArazLab — Dinleme Laboratuvarı</div>
+        <h1>Şarkı yayınlanmadan önce, <span class="accent">dinleyicide ne bırakıyor?</span></h1>
+        <p class="lead">Aşağıdaki demoları dinle ve ilk hislerini paylaş. Amacımız şarkıyı değiştirmek değil, bıraktığı etkiyi anlamak — doğru ya da yanlış cevap yok.</p>
+        <div class="note">Bu platformda yalnızca ArazLab'a ait özel demolar yer almaktadır.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="channel-list">
+    <div class="wrap">
+      <h2>Aktif Demolar</h2>
+      <div id="demoList">
+        <div class="empty-state">Demolar yükleniyor…</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">ArazLab © <span id="year"></span> — tüm geri bildirimler anonim şekilde değerlendirilir.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script type="module" src="js/index.js"></script>
+</body>
+</html>
