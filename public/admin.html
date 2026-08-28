@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetim Paneli | Araz Azhar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+</head>
+<body class="admin-body">
+
+    <!-- Login -->
+    <div class="admin-login" id="login-screen" style="width: 100vw; position:absolute; z-index:999;">
+        <h2 style="font-family: var(--font-editorial-new); font-style:italic; margin-bottom:20px;">Creator Studio</h2>
+        <form id="login-form">
+            <input type="text" class="admin-input" id="login-user" placeholder="Kullanıcı Adı" required>
+            <input type="password" class="admin-input" id="login-pass" placeholder="Şifre" required>
+            <button type="submit" class="btn-primary">Giriş Yap</button>
+        </form>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-dashboard-sidebar" style="display:none;">
+        <div class="admin-sidebar-header">Araz Azhar</div>
+        <div class="admin-nav">
+            <div class="admin-nav-item active" data-target="tab-settings">Genel Ayarlar</div>
+            <div class="admin-nav-item" data-target="tab-about">Hakkımda</div>
+            <div class="admin-nav-item" data-target="tab-disco">Diskografi</div>
+            <div class="admin-nav-item" data-target="tab-visuals">Görseller</div>
+            <div class="admin-nav-item" data-target="tab-contact">İletişim & Sosyal</div>
+        </div>
+        <div class="admin-logout" id="logout-btn">Çıkış Yap</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main" id="admin-dashboard-main" style="display:none;">
+        
+        <!-- Settings / Hero -->
+        <div class="admin-pane active" id="tab-settings">
+            <div class="admin-card">
+                <h3>Site Teması & Ana Sayfa</h3>
+                <div class="form-group">
+                    <label>Tema Seçimi</label>
+                    <select class="admin-input" id="site-theme">
+                        <option value="dark">Karanlık Tema (Dark)</option>
+                        <option value="light">Beyaz Tema (Light)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+    <label>Bakım Modu</label>
+    <select class="admin-input" id="site-maintenance">
+        <option value="false">Kapalı (Site Yayında)</option>
+        <option value="true">Açık (Bakım Sayfası Göster)</option>
+    </select>
+</div>
+                <div class="form-group">
+                    <label>Arka Plan Görseli</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="text" class="admin-input" id="hero-bg" placeholder="URL">
+                        <input type="file" id="hero-bg-file" accept="image/*" style="display:none;" onchange="uploadImage('hero-bg-file', 'hero-bg')">
+                        <button class="btn-secondary" onclick="document.getElementById('hero-bg-file').click()">Dosya Yükle</button>
+                    </div>
+                </div>
+                <div class="form-group"><label>Ana Başlık</label><input type="text" class="admin-input" id="hero-title"></div>
+                <div class="form-group"><label>Alt Başlık</label><input type="text" class="admin-input" id="hero-sub"></div>
+                <button class="btn-primary" onclick="saveSettingsTab()">Tümünü Kaydet</button>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="admin-pane" id="tab-about">
+            <div class="admin-card">
+                <h3>Hakkımda Bilgileri</h3>
+                <div class="form-group">
+                    <label>Hakkımda Metni</label>
+                    <textarea class="admin-input" id="about-text" rows="8"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Profil Fotoğrafı</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="text" class="admin-input" id="about-img" placeholder="Fotoğraf URL">
+                        <input type="file" id="about-img-file" accept="image/*" style="display:none;" onchange="uploadImage('about-img-file', 'about-img')">
+                        <button class="btn-secondary" onclick="document.getElementById('about-img-file').click()">Dosya Yükle</button>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="saveAbout()">Kaydet</button>
+            </div>
+        </div>
+
+        <!-- Discography -->
+        <div class="admin-pane" id="tab-disco">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:30px;">
+                <div class="admin-card">
+                    <h3 id="track-form-title">Yeni Şarkı / Albüm Ekle</h3>
+                    <form id="track-form">
+                        <input type="hidden" id="t-id">
+                        <div class="form-group">
+                            <label>Kayıt Tipi</label>
+                            <select class="admin-input" id="t-type" onchange="toggleTrackType()">
+                                <option value="single">Single (Tekli)</option>
+                                <option value="album">Albüm / EP</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>Başlık</label><input type="text" class="admin-input" id="t-title" required></div>
+                        <div class="form-group">
+                            <label>Kapak Görseli</label>
+                            <div style="display:flex; gap:10px;">
+                                <input type="text" class="admin-input" id="t-cover" required>
+                                <input type="file" id="t-cover-file" accept="image/*" style="display:none;" onchange="uploadImage('t-cover-file', 't-cover')">
+                                <button type="button" class="btn-secondary" onclick="document.getElementById('t-cover-file').click()">Yükle</button>
+                            </div>
+                        </div>
+
+                        <!-- Single Fields -->
+                        <div id="single-fields">
+                            <div class="form-group">
+                                <label>Künye (Credits)</label>
+                                <div id="credit-container"></div>
+                                <button type="button" class="btn-secondary" onclick="addCreditRow()" style="margin-top:10px; font-size:12px;">+ Credit Ekle</button>
+                            </div>
+                            <div class="form-group"><label>Sözler</label><textarea class="admin-input" id="t-lyrics" rows="3"></textarea></div>
+                        </div>
+
+                        <!-- Album Fields -->
+                        <div id="album-fields" style="display:none;">
+                            <label>Albüm Parçaları</label>
+                            <div id="album-tracks-container"></div>
+                            <button type="button" class="btn-secondary" onclick="addAlbumTrack()" style="margin-bottom:20px; font-size:12px;">+ Parça Ekle</button>
+                        </div>
+
+                        <div class="form-group"><label>Spotify Linki</label><input type="text" class="admin-input" id="t-spotify"></div>
+                        <div class="form-group"><label>Apple Music Linki</label><input type="text" class="admin-input" id="t-apple"></div>
+                        
+                        <div style="display:flex; gap:10px;">
+                            <button type="submit" class="btn-primary">Kaydet</button>
+                            <button type="button" class="btn-secondary" onclick="resetTrackForm()">Yeni Temiz Form</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="admin-card">
+                    <h3>Sıralama (Sürükle Bırak)</h3>
+                    <div class="track-list-admin" id="admin-track-list"></div>
+                    <button class="btn-secondary" style="margin-top:20px;" onclick="saveTrackOrder()">Sıralamayı Kaydet</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visuals -->
+        <!-- Visuals -->
+        <div class="admin-pane" id="tab-visuals">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px;">
+                <div class="admin-card">
+                    <h3>Video Klipler</h3>
+                    <div class="form-group"><input type="text" class="admin-input" id="v-title" placeholder="Video Başlığı"></div>
+                    <div class="form-group"><input type="text" class="admin-input" id="v-id" placeholder="YouTube Video ID"></div>
+                    <button class="btn-primary" onclick="addVideo()">Video Ekle</button>
+                    <div style="margin-top:20px;">
+                        <label style="font-size:12px; color:#888; margin-bottom:8px; display:block;">Sıralama (Sürükle Bırak)</label>
+                        <div class="track-list-admin" id="admin-video-list"></div>
+                        <button class="btn-secondary" style="margin-top:10px; font-size:12px;" onclick="saveVisualOrder('videos')">Video Sıralamasını Kaydet</button>
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <h3>Fotoğraflar</h3>
+                    <div class="form-group"><input type="text" class="admin-input" id="p-title" placeholder="Fotoğraf Başlığı (İsteğe bağlı)"></div>
+                    <div class="form-group" style="display:flex; gap:10px;">
+                        <input type="file" id="p-file" accept="image/*" class="admin-input">
+                        <button class="btn-primary" onclick="addPhoto()">Yükle</button>
+                    </div>
+                    <div style="margin-top:20px;">
+                        <label style="font-size:12px; color:#888; margin-bottom:8px; display:block;">Sıralama (Sürükle Bırak)</label>
+                        <div class="track-list-admin" id="admin-photo-list"></div>
+                        <button class="btn-secondary" style="margin-top:10px; font-size:12px;" onclick="saveVisualOrder('photos')">Fotoğraf Sıralamasını Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="admin-pane" id="tab-contact">
+            <div class="admin-card">
+                <h3>İletişim & Sosyal Medya</h3>
+                <div class="form-group"><label>Email</label><input type="text" class="admin-input" id="c-email"></div>
+                <div class="form-group"><label>Spotify</label><input type="text" class="admin-input" id="c-spotify"></div>
+                <div class="form-group"><label>Apple Music</label><input type="text" class="admin-input" id="c-apple"></div>
+                <div class="form-group"><label>YouTube</label><input type="text" class="admin-input" id="c-youtube"></div>
+                <div class="form-group"><label>Instagram</label><input type="text" class="admin-input" id="c-instagram"></div>
+                <button class="btn-primary" onclick="saveContact()">Kaydet</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

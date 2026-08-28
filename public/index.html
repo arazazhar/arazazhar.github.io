@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARAZ AZHAR</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body id="site-body">
+
+    <nav>
+        <a href="/" class="brand-glyph">
+            <img src="/logo.png" alt="Araz Azhar">
+        </a>
+        <div class="menu-trigger" id="menu-btn">MENÜ</div>
+    </nav>
+
+    <div class="menu-overlay" id="menu-overlay">
+        <a href="#hero" class="menu-link">Ana Sayfa</a>
+        <a href="#hakkimda" class="menu-link">Hakkımda</a>
+        <a href="#diskografi" class="menu-link">Diskografi</a>
+        <a href="#gorseller" class="menu-link">Visuals</a>
+        <a href="/press.html" class="menu-link">Basın Kiti</a>
+        <a href="#iletisim" class="menu-link">İletişim</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <h1 id="h-title">araz azhar</h1>
+            <p class="hero-desc" id="h-subtitle">Rap Sanatçısı & Müzik Prodüktörü</p>
+            <span class="hero-label" id="h-label">RsArtMusic</span>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <section id="hakkimda">
+            <h2 class="section-title">Hakkımda</h2>
+            <div class="about-grid">
+                <div class="about-text" id="about-content">
+                    <!-- Text loaded via JS -->
+                </div>
+                <div>
+                    <img id="about-img" class="about-image" src="" alt="Araz Azhar" style="display:none;">
+                </div>
+            </div>
+        </section>
+        
+        <div class="hairline"></div>
+
+        <!-- Discography Section (Infinite Marquee) -->
+        <section id="diskografi">
+    <h2 class="section-title">Diskografi</h2>
+    <div class="marquee-wrapper">
+                <div class="marquee-track" id="disco-marquee">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <div class="hairline"></div>
+
+        <!-- Visuals Section (Infinite Marquee) -->
+        <section id="gorseller">
+    <h2 class="section-title">Visuals</h2>
+    <div class="visuals-tabs">
+        <button class="tab-btn active" data-target="pane-videos">Video Klipler</button>
+        <button class="tab-btn" data-target="pane-photos">Fotoğraflar</button>
+    </div>
+            
+            <div class="visuals-pane active" id="pane-videos">
+                <div class="marquee-wrapper">
+                    <div class="marquee-track" id="videos-marquee"></div>
+                </div>
+            </div>
+
+            <div class="visuals-pane" id="pane-photos">
+                <div class="marquee-wrapper">
+                    <div class="marquee-track" id="photos-marquee"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer / Contact -->
+    <footer id="iletisim">
+        <h2 class="section-title" style="margin-bottom: 10px;">İletişim</h2>
+        <a href="mailto:info@arazazhar.com" id="contact-email" style="color: var(--text-main); text-decoration: none; font-size: 18px; border-bottom: 1px solid var(--text-main); padding-bottom: 2px;">info@arazazhar.com</a>
+        
+      <div class="social-icons" id="social-links">
+            <a href="#" id="s-spotify" target="_blank" title="Spotify">
+                <svg viewBox="0 0 496 512"><path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-72.5-47-152.2-49.2-227.3-32.3-5.2 1.3-11.6 2.6-15.2 2.6-12.9 0-21.4-10-21.4-21.4 0-14.5 9-20.7 20-23 85-20.4 175.7-17.1 258 35.5 6.5 4.2 10 9 10 19.1 0 12.9-10 23.7-21.8 23.7zm27.2-68.9c-5.8 0-10-2.6-14.2-5.5-84.1-57.9-184.2-62.1-274.6-43.7-6.5 1.6-14.2 2.9-18.1 2.9-15.8 0-26.2-11.9-26.2-26.2 0-17.8 11.6-26.2 24.2-29.4 103.5-22.3 216.5-16.8 312.8 49.5 8.1 5.5 12.6 11.3 12.6 22.3 0 15.8-12 29.8-28.5 29.8z"/></svg>
+            </a>
+            <a href="#" id="s-apple" target="_blank" title="Apple Music">
+                <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            </a>
+            <a href="#" id="s-youtube" target="_blank" title="YouTube">
+                <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.781 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+            </a>
+            <a href="#" id="s-instagram" target="_blank" title="Instagram">
+                <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="track-modal">
+        <button class="modal-close-icon" id="modal-close-track"></button>
+        <div class="track-modal-content" id="track-modal-content">
+            <div class="modal-left">
+                <img id="m-cover" src="" alt="Cover">
+            </div>
+            <div class="modal-right">
+                <h3 class="modal-title" id="m-title">Title</h3>
+                <!-- Container for Single or Album Details -->
+                <div id="m-track-details"></div>
+                
+                <div class="modal-links" style="margin-top: 20px;">
+                    <a href="#" id="m-spotify" target="_blank">Spotify</a>
+                    <a href="#" id="m-apple" target="_blank">Apple Music</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="media-modal">
+        <button class="modal-close-icon" id="modal-close-media"></button>
+        <button class="nav-btn prev-btn" id="media-prev">&#10094;</button>
+        <div class="media-modal-content" id="media-content"></div>
+        <button class="nav-btn next-btn" id="media-next">&#10095;</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
